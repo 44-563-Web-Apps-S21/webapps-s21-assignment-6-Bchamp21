@@ -23,21 +23,15 @@ var product = 1
 
 function permutations(){
     
-    console.log("Getting permutation values")
     first_value = document.getElementById("first_element").value
     second_value = document.getElementById("second_element").value
-    confirmed = confirm(first_value+" permute "+second_value+" is ")
     
-    out = document.getElementById("Permutationresult")
-    for(i=first_value;i>=(first_value-second_value+1);i-1){
+    for(i=first_value;i>=(first_value-second_value+1);i--){
         product=product*i
-    }
-    if(confirmed){
-        out.innerHTML = first_value+" permute "+second_value+" is "+product
-    } else{
-        out.innerHTML = first_value+" permute "+second_value+" is "+product
-    }
-
+    }    
+    out = document.getElementById("Permutationresult")
+    out.innerHTML = first_value+" permute "+second_value+" is "+product
+    
 }
 </script>
 
