@@ -26,7 +26,7 @@ function permutations(){
     first_value = document.getElementById("first_element").value
     second_value = document.getElementById("second_element").value
     
-    for(i=first_value;i>=(first_value-second_value+1);i--){
+    for(i=first_value;i>=first_value-second_value+1;i--){
         product=product*i
     }    
     out = document.getElementById("Permutationresult")
