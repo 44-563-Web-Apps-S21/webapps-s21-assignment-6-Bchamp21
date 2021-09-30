@@ -33,10 +33,33 @@
 <p id="result">This text will be replaced </p>
 
 <p id="guessresult" >Count of correct/wrongs </p>
+
+<div class="container">
+    <img  id="imagerotateresult" src="Spider.jpg"class ="img-fluid" width= "200" height="200" alt="Spider" onclick="rotateImage()">
+</div>
+
+
 <script> 
 
 var correct = 0
 var wrong = 0
+var currentImage = 0
+
+
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
 
 function processGuess(){
     
@@ -59,18 +82,24 @@ function processGuess(){
 
 }
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+function rotateImage(){
+        
+    out = document.getElementById("imagerotateresult")
+    switch (currentImage) {
+        case 0:
+            out.src="Albatross.jpg";
+            currentImage=1;
+            break;
+        case 1:
+            out.src="Alpaca.jpg";
+            currentImage=2;
+            break;
+        case 2:
+            out.src="Spider.jpg";
+            currentImage=0;
+            break;
     }
+
 }
 </script>
 
