@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Hidden things by Bhuvan</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <br>
+    <br>
+
+    <label for="form1_pwd">Enter the secret word </label>
+    <input class="far fa-eye" value = "Secret" type ="password" id="form1_pwd" name="form1_pwd" autofocus> <br> 
+    
+    <label for="form1_guess">Enter a guess </label>
+    <input class="far fa-eye" type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <p id ="result" > Results from above guess </p>
+
+    
+    <input type="button" onclick="processGuess()" value="Check the guess">
+
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<p id="guessresult" >Count of correct/wrongs </p>
+<script> 
+
+var correct = 0
+var wrong = 0
+
+function processGuess(){
+    
+    console.log("Getting guess values")
+    secret = document.getElementById("form1_pwd").value
+    guess = document.getElementById("form1_guess").value
+    confirmed = confirm("Are these the secret word and guess values? "+secret+" and "+guess)
+    
+    out = document.getElementById("guessresult")
+    if(confirmed){
+        correct+=1
+        out.innerHTML = "Congratulations ! Count of Corrects = "+correct+ 
+        "\nCount of Wrongs = "+wrong
+    } else {
+        wrong+=1
+        out.innerHTML = "Sorry ! Count of Corrects = "+correct+ 
+        "\nCount of Wrongs = "+wrong
+    }
+
+
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
