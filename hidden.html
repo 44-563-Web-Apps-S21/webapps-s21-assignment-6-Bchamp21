@@ -35,7 +35,7 @@
 <p id="guessresult" >Count of correct/wrongs </p>
 
 <div class="container">
-    <img  id="imagerotateresult" src="Spider.jpg"class ="img-fluid" width= "200" height="200" alt="Spider" onclick="rotateImage()">
+    <img  id="imagerotateresult" src="Spider.jpg"class ="img-fluid" width= "200" height="200" alt="Spider" onclick="newImage()">
 </div>
 
 
@@ -43,7 +43,7 @@
 
 var correct = 0
 var wrong = 0
-var currentImage = 0
+var usingImage = 1
 
 
 
@@ -82,21 +82,21 @@ function processGuess(){
 
 }
 
-function rotateImage(){
+function newImage(){
         
     out = document.getElementById("imagerotateresult")
-    switch (currentImage) {
-        case 0:
-            out.src="Albatross.jpg";
-            currentImage=1;
-            break;
+    switch (usingImage) {
         case 1:
-            out.src="Alpaca.jpg";
-            currentImage=2;
+            out.src="Albatross.jpg";
+            usingImage=2;
             break;
         case 2:
+            out.src="Alpaca.jpg";
+            usingImage=3;
+            break;
+        case 3:
             out.src="Spider.jpg";
-            currentImage=0;
+            usingImage=1;
             break;
     }
 
