@@ -6,31 +6,35 @@
 <h2>Bhuvan computes</h2>
 
 <form>
-    <label for="first_element">Enter a base</label>
-    <input type ="number" id="first_element" name="first_element" value=10> <br>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" name="base" value=10> <br>
 
-    <label for="second_element">Enter an exponent</label>
-    <input type ="number" id="second_element" name="second_element" value=2> <br>
+    <label for="exponent">Enter an exponent</label>
+    <input type ="number" id="exponent" name="exponent" value=2> <br>
 
-    <input type="button" onclick="power()" value="Compute">
+    <input type="button" onclick="powers()" value="Compute">
 </form>
 
 
-<p id="Permutationresult">This text will be replaced </p>
+<p id="powerresult">This text will be replaced </p>
 
 <script> 
-var product = 1
 
-function permutations(){
+function powers(){
     
-    first_value = document.getElementById("first_element").value
-    second_value = document.getElementById("second_element").value
+    base = document.getElementById("base").value
+    exponent = document.getElementById("exponent").value
     
-    for(i=first_value;i>=first_value-second_value+1;i--){
-        product=product*i
+    out = document.getElementById("powerresult")
+
+    var result  = '1';
+    let text = "";
+    
+    for(var i = 1; i <=exponent; i++) {
+    result = result*base
+    text += result +" ";
     }    
-    out = document.getElementById("Permutationresult")
-    out.innerHTML = first_value+" permute "+second_value+" is "+product
+    out.innerHTML = text;
     
 }
 </script>
