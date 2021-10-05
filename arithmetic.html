@@ -16,9 +16,68 @@
 </form>
 
 
-<p id="powerresult">This text will be replaced </p>
+<p id="powerresult">Base power of exponent result </p>
+
+
+<form>    
+    <input type="radio" name="cal" id="plus" onclick="processRadio()" value="plus"> 
+    <label for="plus">+</label><br>
+
+    <input type="radio" name="cal" id="minus" onclick="processRadio()" value="minus"> 
+    <label for="minus">-</label><br>
+
+    <input type="radio" name="cal" id="times" onclick="processRadio()" value="times"> 
+    <label for="times">*</label><br>
+
+    <input type="radio" name="cal" id="divide" onclick="processRadio()" value="divide"> 
+    <label for="divide">/</label><br>
+
+</form>
+
+<p id="plusresult">Arithmatic Calculation</p>
+
 
 <script> 
+
+
+function processRadio(){
+    
+    base = document.getElementById("base").value
+    exponent = document.getElementById("exponent").value
+    
+    var operators = document.getElementsByName("cal")
+    var plus = document.getElementById("plus")
+    var minus = document.getElementById("minus")
+    var times = document.getElementById("times")
+    var divide = document.getElementById("divide")
+
+    out = document.getElementById("plusresult")
+
+    var result  = '1';
+    let text = "";
+    
+    if(operators[0].checked == true){
+        out.innerHTML = "base + exponent is : "+ (+base + +exponent);
+        // out.innerHTML = text;
+        
+    }
+    else if(operators[1].checked == true){
+        out.innerHTML = "base - exponent is : "+ (base - exponent);
+        // out.innerHTML = text;
+        
+    }
+    else if(operators[2].checked == true){
+        out.innerHTML = "base * exponent is : " + (base * exponent);
+        // out.innerHTML = text;
+       
+    }
+    else if(operators[3].checked == true){
+        out.innerHTML = "base / exponent is : " + (base / exponent);
+        // out.innerHTML = text;
+       
+    }        
+    
+}
 
 function powers(){
     
@@ -34,8 +93,8 @@ function powers(){
     result = result*base
     text += result +" ";
     }    
-    out.innerHTML = text;
-    
+    out.innerHTML = "Powers of base are: "+text;
+
 }
 </script>
 
