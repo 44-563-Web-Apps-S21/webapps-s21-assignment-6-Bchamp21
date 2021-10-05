@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Bhuvan orders a car</h2>
+
+<form>
+    <input type="checkbox" id="cb1_car" name="box"
+    value="electric" checked>
+    <label for="cb1_car">electric</label></br>
+    
+    <input type="checkbox" id="cb2_car" name="box"
+    value="ac">
+    <label for="cb2_car">ac</label></br>
+    
+    <input type="checkbox" id="cb3_car" name="box"
+    value="gps" checked>
+    <label for="cb2_car">gps</label></br>
+    <br>
+    <input type="button" onclick="orderCar()" value="Order a car">
+</form>
+
+
+<p id="carresult">Car properties </p>
+`
+<script> 
+
+var my_car ={};
+
+function orderCar() {
+    var box = document.getElementsByName("box")
+
+    electric = document.getElementById("cb1_car").value
+    ac = document.getElementById("cb2_car").value
+    gps = document.getElementById("cb3_car").value
+    // confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("carresult")
+    if(box[0].checked == true){
+        my_car.electric =  true;
+    } 
+    else{
+        my_car.electric =  false;
+    }
+    if(box[1].checked == true){
+        my_car.ac =  true;
+    } 
+    else{
+        my_car.ac =  false;
+    }    
+    if(box[2].checked == true){
+        my_car.gps =  true;
+    } 
+    else{
+        my_car.gps =  false;
+    }
+
+    console.log(my_car)
+    out.innerHTML = "Car Properties { electric : "+my_car.electric+", ac : "+my_car.ac+", gps : "+my_car.gps+" }"
+}
+</script>
+
+</body>
+</html> 
