@@ -77,9 +77,14 @@ function processPhrase(){
         wrong+=1
         out.innerHTML = "Access denied ! Count of Corrects = "+correct+ 
         "\nCount of Wrongs = "+wrong
+        if(wrong>=3){
+            accountLocked();
+        }
     }
+}
 
-
+function accountLocked(){
+    alert("Account Locked !")
 }
 
 function newImage(){
